@@ -1,27 +1,12 @@
 import { Component } from '@angular/core';
-import { ApiService } from './api.service';
+import { ProjectComponent } from './project/project.component'
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ApiService]
 })
-export class AppComponent {
-  projects = [{name: 'Auditoría Tarifas'}];
+export class AppComponent { 
 
-  constructor(private api:ApiService){
-    this.getProjects();
-  }
-
-  getProjects = () => {
-    this.api.getAllProjects().subscribe(
-      data => {
-        this.projects = data;
-      },
-      error => {
-        console.log(error);
-      }
-    )
-  }
 }
